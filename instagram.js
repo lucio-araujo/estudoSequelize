@@ -11,38 +11,80 @@ const { Op } = require('sequelize');
 //     console.table(resultado.toJSON());
 // });
 
-Usuario.findAll({
-    where: {
-        nome: {[Op.like]: '%a%'}
-    }
-})
-.then((resultado) => {
-    console.table(resultado.map(user => user.toJSON()));
-});
-
-Usuario.findAll({
-    where: {
-        nome: {[Op.notLike]: '%a%'}
-    }
-})
-.then((resultado) => {
-    console.table(resultado.map(user => user.toJSON()));
-});
-
-// Post.findAll()
+// Usuario.findAll({
+//     where: {
+//         nome: {[Op.like]: '%a%'}
+//     }
+// })
 // .then((resultado) => {
-//     console.log(resultado.map(post => post.toJSON()));
+//     console.table(resultado.map(user => user.toJSON()));
 // });
 
-Post.findAll({
-    limit: 1,
-    offset: 1
-})
+// Usuario.findAll({
+//     where: {
+//         nome: {[Op.notLike]: '%a%'}
+//     }
+// })
+// .then((resultado) => {
+//     console.table(resultado.map(user => user.toJSON()));
+// });
+
+Post.findAll()
 .then((resultado) => {
     console.log(resultado.map(post => post.toJSON()));
 });
 
 // Comentario.findAll()
+// .then((resultado) => {
+//     console.table(resultado.map(user => user.toJSON()));
+// });
+
+// for (let i = 0; i < 6; i += 2) {
+//     Comentario.findAll({
+//       order: [['id', 'DESC']],
+//       offset: i,
+//       limit: 2,
+//     }).then((resultado) => {
+//       console.table(resultado.map((comment) => comment.toJSON()));
+//     });
+//   }
+
+//   Usuario.create({
+//     nome: 'Lucio Araujo',
+//     email: 'lucio.araujo@digitalhouse.com',
+//     senha: 'maravilhosaaaa123'
+//   }).then((resultado) => {
+//     console.table(resultado.toJSON());
+// });
+
+// Usuario.update({
+//     email: 'sergio@digitalhouse.com'
+// }, {
+//     where: {
+//         id: 2
+//     }
+// }).then((resultado) => {
+//     console.table(resultado);
+// });
+
+// Usuario.destroy({
+//     where: {
+//         id: 3
+//     }
+// }).then((resultado) => {
+//     console.table(resultado);
+// });
+
+// Post.create({
+//     texto: 'Teste!',
+//     img: '',
+//     usuario_id: 9,
+//     n_likes: 100
+// }).then((resultado) => {
+//     console.table(resultado.toJSON());
+// });
+
+// Usuario.findAll()
 // .then((resultado) => {
 //     console.table(resultado.map(user => user.toJSON()));
 // });
