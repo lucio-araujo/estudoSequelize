@@ -6,9 +6,13 @@ const { Op } = require('sequelize');
 //     console.table(resultado.map(user => user.toJSON()));
 // });
 
-// Usuario.findByPk(2)
-// .then((resultado) => {
-//     console.table(resultado.toJSON());
+// Usuario.findByPk(1, {
+//     include: [
+//         'posts'
+//     ]
+// })
+// .then((usuario) => {
+//     console.log(usuario.toJSON());
 // });
 
 // Usuario.findAll({
@@ -29,9 +33,18 @@ const { Op } = require('sequelize');
 //     console.table(resultado.map(user => user.toJSON()));
 // });
 
-Post.findAll()
-.then((resultado) => {
-    console.log(resultado.map(post => post.toJSON()));
+// Post.findAll()
+// .then((resultado) => {
+//     console.log(resultado.map(post => post.toJSON()));
+// });
+
+Post.findByPk(1, {
+    include: [
+        'comentarios'
+    ]
+})
+.then((post) => {
+    console.log(post.toJSON());
 });
 
 // Comentario.findAll()
@@ -77,7 +90,7 @@ Post.findAll()
 
 // Post.create({
 //     texto: 'Teste!',
-//     img: '',
+//     img: null,
 //     usuario_id: 9,
 //     n_likes: 100
 // }).then((resultado) => {
